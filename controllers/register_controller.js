@@ -10,7 +10,10 @@ const hashedPassword=bcrypt.hashSync(req.body.password,8);
         password:hashedPassword
     },
     (error,User)=>{
-        if(error) return res.status(500).json({"messege":"problem in registering user"});
+        if(error) {
+            console.log('allo',error);
+            return res.status(500).json({"messege":"problem in registering user"})
+        };
     })
     const token=jwt.sign({ id: User._id },s_key.secret,{
         expiresIn:86400 //expieres in 24 hrs
