@@ -5,6 +5,8 @@ const db=require('./model/db');
 const PORT=8082;
 const loginRout=require('./routes.js/login.route');
 const registerRoute=require('./routes.js/register.route');
+const logOutRoute=require('./routes.js/logout.route');
+
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json());
 
@@ -16,7 +18,7 @@ app.get('/',(req,res,next)=>{
 app.post('/register',registerRoute);
 app.get('/me',registerRoute);
 app.post('/login',loginRout);
-
+app.get('/logout',logOutRoute);
 
 app.get('')
 
