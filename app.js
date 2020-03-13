@@ -2,7 +2,7 @@ const express=require('express');
 const bodyParser=require('body-parser');
 const app=express();
 const db=require('./model/db');
-const PORT=8080;
+const PORT=8082;
 const loginRout=require('./routes.js/login.route');
 const registerRoute=require('./routes.js/register.route');
 app.use(bodyParser.urlencoded({extended:true}))
