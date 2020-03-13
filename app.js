@@ -16,7 +16,7 @@ app.get('/',(req,res,next)=>{
 });
 
 app.post('/register',registerRoute);
-app.get('/me',registerRoute);
+app.get('/userDetails',registerRoute);
 app.post('/login',loginRout);
 app.get('/logout',logOutRoute);
 

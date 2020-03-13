@@ -9,13 +9,13 @@ exports.login=(req,res,next)=>{
           if (!user) return res.status(404).send('No user found.');
           
           let passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
-          if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
+          if (!passwordIsValid) return res.status(401).send({ auth: false, token: null ,messege: "invalid login credentials"});
           
           const token = jwt.sign({ id: user._id }, s_key.secret, {
             expiresIn: 86400 // expires in 24 hours
           });
           
-          res.status(200).send({ auth: true, token: token });
+          res.status(200).send({ auth: true, token: token ,messege:`successfully logged in as ${user.name} with id as ${user._id}` });
         });
         
       
